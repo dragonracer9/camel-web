@@ -1,7 +1,11 @@
 ```mermaid
 graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+    User-->Balance;
+    User-->[Bet];
+    Bet-->Owners: [Users];
+    Bet-->Winner: [Users];
+    Bet-->Value;
+    Bet-->Entered: Date;
+    Bet-->Due: Date;
+    Bet-->Status: {oepn/closed}
 ```
