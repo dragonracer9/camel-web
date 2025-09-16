@@ -1,4 +1,5 @@
 ```mermaid
+---
 title: Animal example
 ---
 classDiagram
