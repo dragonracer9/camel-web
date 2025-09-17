@@ -1,28 +1,19 @@
 ```mermaid
 ---
-title: Animal example
+title: Bank Data Layout
 ---
 classDiagram
-    note "From Duck till Zebra"
-    Animal <|-- Duck
-    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
-    Animal <|-- Fish
-    Animal <|-- Zebra
-    Animal : +int age
-    Animal : +String gender
-    Animal: +isMammal()
-    Animal: +mate()
-    class Duck{
+    Bet <|-- User
+    note for User "Obvs has all other usual user things (username, passwd, etc...)"
+    Bet : +Owners: [Users]
+    Bet : +int Value
+    Bet : +String Name (Defaults to first User of side 1 and side 2 + date)
+    Bet : +String Description
+    Bet : +Bool: open
+    Bet : +Winner (probs as like an int or something to determine what user won)
+    class User{
         +String beakColor
         +swim()
         +quack()
-    }
-    class Fish{
-        -int sizeInFeet
-        -canEat()
-    }
-    class Zebra{
-        +bool is_wild
-        +run()
     }
 ```
