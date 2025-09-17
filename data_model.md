@@ -3,6 +3,11 @@
 title: Bank Data Layout
 ---
 classDiagram
+    class User{
+        +String beakColor
+        +swim()
+        +quack()
+    }
     Bet <|-- User
     note for User "Obvs has all other usual user things (username, passwd, etc...)"
     Bet : +Owners list of users
@@ -11,9 +16,4 @@ classDiagram
     Bet : +String Description
     Bet : +Bool open
     Bet : +Winner (probs as like an int or something to determine what user won)
-    class User{
-        +String beakColor
-        +swim()
-        +quack()
-    }
 ```
