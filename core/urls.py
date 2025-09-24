@@ -22,8 +22,7 @@ from . import settings
 
 urlpatterns = [
     path('', RedirectView.as_view(url='ledger/', permanent=False)),
-    path('', include('ledger.urls')),
+    path('ledger/', include('ledger.urls')),
     path("admin/", admin.site.urls)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 

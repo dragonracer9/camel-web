@@ -17,16 +17,16 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
-from finder import views
+from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('add/', views.add, name='add'),
-    path('onba/', views.card, name='home'),
-    path('about/', views.about, name='about'),
-    path('bet/', views.bet, name='bet'),
-    path('accounts/profile/', views.profile, name='profile'), ## default redirect after login
-    path('accounts/register/', views.register, name='register'),
-    path('accounts/login/', views.user_login, name='login'),
-    path('accounts/logout/', views.user_logout, name='logout'),
+    path('bets/', views.bets, name='bets'),
+    # path('onba/', views.card, name='home'),
+    # path('about/', views.about, name='about'),
+    # path('bet/', views.bet, name='bet'),
+    # path('accounts/profile/', views.profile, name='profile'), ## default redirect after login
+    # path('accounts/register/', views.register, name='register'),
+    # path('accounts/login/', views.user_login, name='login'),
+    # path('accounts/logout/', views.user_logout, name='logout'),
 ]

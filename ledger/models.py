@@ -58,8 +58,7 @@ class Bet(models.Model):
         self.outcome = outcome
         self.save()
         
-        
-    
+
 class Stake(models.Model):
     user = models.OneToOneField(User, on_delete=models.SET_NULL)
     amount = models.FloatField()  # Amount staked

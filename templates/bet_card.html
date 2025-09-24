@@ -1,0 +1,22 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="d-flex flex-row justify-content-between">
+            <div class="d-flex flex-column">
+                <h3 class="card-title" href="/card/{{bet.pk}}">{{bet.name}}</h3>
+                <p class="card-text">Total = {{bet.amount}}</p>
+            </div>
+            <div class="flex-column d-flex me-4" style="min-width: 5em; align-content: center;">
+                <div class="rounded-pill bt mb-2 d-flex flex-row text-light justify-content-around"
+                    style="background-color: #627313;
+                           background-image: -webkit-linear-gradient(-30deg, #627313 50%, #B7352D 50%);"
+                   >
+                    <div class="flex-column">{{space.upvotes}}</div>
+                    <div class="flex-column"> {{space.downvotes}} </div>
+                </div>
+                <button type="button" class="btn btn-active btn-secondary" onclick="update_pos('{{space.pk}}')" style="background-color: #6F6F6F;z-index: 3; position:relative">
+                    focus
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
