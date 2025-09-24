@@ -1,15 +1,17 @@
+import uuid
 from django.db import models
 from django.contrib.auth.forms import User
 from django.utils import timezone
     
 class Bet(models.Model):
     # primary key 'id'
-    # id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    name = models.CharField(max_length=200) # Name of the bet
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    name = models.CharField(max_length=100) # Name of the bet
     description = models.TextField()
     
     placed_at = models.DateTimeField(auto_now_add=True)
-    closed_at = models.DateTimeField()
+    closed_at = models.DateTimeField(null=True, blank=True) # we can use self.resolved together with this to use this as a due by date. 
     resolved = models.BooleanField(default=False)
     outcome = models.BooleanField(default=False)  # True for 'for', False for 'against'
     
@@ -75,4 +77,3 @@ class Comment(models.Model):
     
     def __str__(self):
         return repr(self)
-

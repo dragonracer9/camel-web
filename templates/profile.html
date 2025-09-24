@@ -5,8 +5,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
-<body id="iau9" style="height: 100svh;">
-    {% include "menu.html" %}
-    Welcome to the Camel Bank!
+  <body>
+    <div class="card mb-3">
+    <div class="card-body">
+        <div class="d-flex flex-row justify-content-between">
+            <div class="d-flex flex-column">
+                <h3 class="card-title">{{user.name}}</h3>
+                <p class="card-text">You have {{user.amount}} camels.</p>
+                <p><|p>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
   </body>
 </html>
