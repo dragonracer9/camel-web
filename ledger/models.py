@@ -34,7 +34,7 @@ class Bet(models.Model):
     def get_total_amount(self):
         # total = self.stake_set.aggregate(Sum("amount"))["amount_sum"]
         total = sum(stake.amount for stake in self.stake_set)  ## so, imma see if this breaks
-        return total if total else 0.0
+        return total
     
     def unique_winning_users(self):
         return self.stake_set.filter(side=self.outcome).distinct("user").count()
@@ -42,19 +42,23 @@ class Bet(models.Model):
     def get_nr_participants(self):
         return self.stake_set.distinct("user").count()
     
+    def get_total_winnings(self):
+        if not self.resolved:
+            return 0.0
+        return self.get_total_amount()
     
+    def total_staked_by_user(self, user):
+        user_stakes = self.stake_set.filter(user=user)
+        if not user_stakes.exists():
+            return 0.0
+        return sum(stake.amount for stake in user_stakes)    
     
     def resolve(self, outcome):
         self.resolved = True
-        
-        for stake in self.stake_set:
-            if stake.side == outcome:
-                stake.user.profile.balance +=  
-                stake.user.profile.save()
+        self.outcome = outcome
         self.save()
         
         
-
     
 class Stake(models.Model):
     user = models.OneToOneField(User, on_delete=models.SET_NULL)
